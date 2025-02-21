@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Tempo de Vida</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Tempo de Vida</h1>
+        <form id="lifeCalculator">
+            <label>Nome completo: <input type="text" id="nome" required></label><br><br>
+            <label>Data de nascimento: <input type="date" id="nascimento" required></label><br><br>
+            <label>Data de falecimento (opcional): <input type="date" id="falecimento"></label><br><br>
+            <button type="button" onclick="calcularTempo()">Calcular</button>
+            <p id="erro" class="erro"></p>
+        </form>
+        
+        <h2>Resultado:</h2>
+        <p id="resultado"></p>
+    </div>
+    
+    <script>
+        function calcularTempo() {
+            const nome = document.getElementById("nome").value.trim();
+            const nascimento = document.getElementById("nascimento").value;
+            let falecimento = document.getElementById("falecimento").value;
+            const erroElement = document.getElementById("erro");
+            erroElement.textContent = "";
+
+            if (!nome || !nascimento) {
+                erroElement.textContent = "Por favor, preencha todos os campos obrigatórios.";
+                erroElement.style.color = "red";
+                return;
+            }
+
+            const nascimentoData = new Date(nascimento);
+            falecimento = falecimento ? new Date(falecimento) : new Date();
+
+            if (falecimento < nascimentoData) {
+                erroElement.textContent = "A data de falecimento não pode ser anterior à data de nascimento.";
+                erroElement.style.color = "red";
+                return;
+            }
+
+            const diferenca = falecimento - nascimentoData;
+            const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+            const semanas = Math.floor(dias / 7);
+            const meses = Math.floor(dias / 30.44);
+            const anos = Math.floor(dias / 365.25);
+
+            document.getElementById("resultado").innerHTML = `
+                Olá, ${nome}!<br>
+                Você já viveu aproximadamente:<br>
+                - ${dias} dias<br>
+                - ${semanas} semanas<br>
+                - ${meses} meses<br>
+                - ${anos} anos`;
+        }
+    </script>
+</body>
+</html>
