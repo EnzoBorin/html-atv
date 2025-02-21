@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #e3f2fd;
     margin: 0;
     padding: 0;
     display: flex;
@@ -11,60 +11,73 @@ body {
 
 .container {
     background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
     text-align: center;
-    max-width: 400px;
+    max-width: 350px;
+    border: 2px solid #1565c0;
 }
 
 h1 {
-    color: #333;
+    color: #0d47a1;
+    font-size: 20px;
 }
 
 form {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 label {
     display: block;
-    margin-top: 10px;
+    margin-top: 8px;
     font-weight: bold;
+    color: #0d47a1;
+    font-size: 14px;
 }
 
 input {
     width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 6px;
+    margin-top: 4px;
+    border: 1px solid #1565c0;
+    border-radius: 4px;
+    font-size: 14px;
 }
 
 button {
-    background-color: #007bff;
+    background-color: #d32f2f;
     color: white;
     border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
+    padding: 8px 12px;
+    border-radius: 4px;
     cursor: pointer;
-    margin-top: 15px;
+    margin-top: 12px;
     width: 100%;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #b71c1c;
 }
 
 h2 {
-    color: #444;
-    margin-top: 20px;
+    color: #0d47a1;
+    margin-top: 15px;
+    font-size: 18px;
 }
 
 #resultado {
-    font-size: 16px;
-    color: #555;
-    background: #e9ecef;
-    padding: 10px;
-    border-radius: 5px;
+    font-size: 14px;
+    color: #424242;
+    background: #bbdefb;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.erro {
+    color: red;
+    font-weight: bold;
+    margin-top: 8px;
+    font-size: 12px;
 }
